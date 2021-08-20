@@ -32,17 +32,17 @@ header("location:cart.php?id=$uid");
 
 </head>
 <body>
-		<div class="container">
-		        <div class="row mt-5">
-		            <div class="col-md-8 offset-2 mt-5">
-		                <div class="card mt-5">
-		                    <div class="card-header bg-primary text-white">
-		                        <h4><b>Category Subcategory Dropdown in PHP</b></h4>
+		<div class="container-fluid">
+		        <div class="row mt-5 bg-dark">
+		            <div class="col-md-6 offset-3 mt-5">
+		                <div class="card bg-dark text-light mb-5">
+		                    <div class="card-header bg-warning text-white">
+		                        <h4><b>Please Choose Your Product Category</b></h4>
 		                    </div>
 		                    <div class="card-body">
 		                        <form method="post" enctype="multipart/form-data">
 		                            <div class="form-group">
-		                                <label for="PRODUCT-DROPDOWN">Product</label>
+		                                <label for="PRODUCT-DROPDOWN">products</label>
 		                                <select class="form-control" name="product" id="product-dropdown">
 		                                	<option>Select Product</option>
 		                                    <?php

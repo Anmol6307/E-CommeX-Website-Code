@@ -47,10 +47,11 @@ $res=mysqli_query($connection, $query);
 										<input type="button" value="+" onclick="add<?php echo $a; ?>()"/><br/><br/>
 										Total Price:<input  id="t" name="tamt" value="<?php echo $amt; ?>" readonly style="width:80px;"/>
 			                    		</div>
-			                    		<input type="hidden" id="p_ids<?= $a; ?>" name="hidden" value="<?php echo $row['p_id'];?>">
-		                          		<button type="submit" name="place_order<?= $a; ?>" id="place_order<?= $a; ?>" class="btn btn-primary from-control">Place  Order</button>
-		                          		<button type="submit" name="delete<?= $a; ?>" id="delete<?= $a; ?>" class="btn btn-primary from-control">delete</button>
-
+										<div class="text-center">
+			                    		  <input type="hidden" id="p_ids<?= $a; ?>" name="hidden" value="<?php echo $row['p_id'];?>">
+		                          		  <button type="submit" name="place_order<?= $a; ?>" id="place_order<?= $a; ?>" class="btn btn-primary from-control">Place  Order</button>
+		                          		  <button type="submit" name="delete<?= $a; ?>" id="delete<?= $a; ?>" class="btn btn-danger from-control">delete</button>
+										</div>
 		                    		</form>
 		                    	</div>
 		                    	

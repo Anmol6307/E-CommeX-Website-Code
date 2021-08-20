@@ -19,7 +19,7 @@ $results=mysqli_query($connection, $select);
 
 	<a href="logout.php"><button class="btn btn-primary">LOGOUT</button></a>
     <a href="cart.php?id=<?= $uid; ?>"><button class="btn btn-primary">View Cart</button></a>
-    <h1>My All Orders</h1>
+    <h1>My Orders</h1>
 <?php
     while($rows=mysqli_fetch_assoc($results)){
     	//print_r($rows);
@@ -27,8 +27,8 @@ $results=mysqli_query($connection, $select);
 		         ?>
     	     <div class="card mt-5 row">
 		                    <div class="card-header ">
-		                    	<div class="card-body ">
-		                    		<h2>Current</h2>
+		                    	<div class="card-body">
+		                    		<h2 class="ml-3">Current</h2>
 			                    		<div class="col-md-6">
 			                    			<img src="upload/<?= $rows['file']; ?>" style="width:200px;height: 200px;">
 			                    		</div>
@@ -40,7 +40,7 @@ $results=mysqli_query($connection, $select);
 			                    		</div>
 			                    		<form method="post">
 			                    			<input type="hidden" name="hidden" id="hidden" value="<?= $rows['id'];?>">
-			                    			<button type="submit" class="btn btn-danger" id="cancel" >Cancel Order</button>
+			                    			<button type="submit" class="btn btn-danger mt-2 ml-3" id="cancel" >Cancel Order</button>
 			                    		</form>
 		                    	</div>
 		                    	
@@ -53,7 +53,7 @@ $results=mysqli_query($connection, $select);
 		         <div class="card mt-5 row">
 		                    <div class="card-header ">
 		                    	<div class="card-body ">
-		                    		<h2>Completed</h2>
+		                    		<h2 class="ml-3">Completed</h2>
 			                    		<div class="col-md-6">
 			                    			<img src="upload/<?= $rows['file']; ?>" style="width:200px;height: 200px;">
 			                    		</div>
@@ -65,7 +65,7 @@ $results=mysqli_query($connection, $select);
 			                    		</div>
 			                    		<form method="post">
 			                    			<input type="hidden" name="hidden" id="hidden" value="<?= $rows['id'];?>">
-																<p class="text-success">Completed</p>			                    		
+											<p class="text-success">Completed</p>			                    		
 			                    		</form>
 		                    	</div>
 		                    	
@@ -78,7 +78,7 @@ $results=mysqli_query($connection, $select);
 		          <div class="card mt-5 row">
 		                    <div class="card-header ">
 		                    	<div class="card-body ">
-		                    		<h2>Cancelled</h2>
+		                    		<h2 class="ml-3">Cancelled</h2>
 			                    		<div class="col-md-6">
 			                    			<img src="upload/<?= $rows['file']; ?>" style="width:200px;height: 200px;">
 			                    		</div>
@@ -90,14 +90,14 @@ $results=mysqli_query($connection, $select);
 			                    		</div>
 			                    		<form method="post">
 			                    			<input type="hidden" name="hidden" id="hidden" value="<?= $rows['id'];?>">
-																<p class="text-danger">Cancelled</p>			                    		
-															</form>
+											<p class="text-danger ml-3">Cancelled</p>			                    		
+										</form>
 		                    	</div>
 		                    	
 		                    </div>
 		         </div>
 		       <?php } ?>
-		        	</div>
+		    </div>
   <?php
     }
 ?>
