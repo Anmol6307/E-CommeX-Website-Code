@@ -56,7 +56,7 @@ nav ul li a{
 </head>
 <body>
     <div class='navbar'>
-       <a href='dashboard.php'><button class="btn btn-primary">Home</button></a> 
+       <a href='dashboard.php'><button class="btn btn-primary ml-5">Home</button></a> 
          <nav>
            <ul id='MenuItems'>
 		     <li><a href="cart.php?id=<?= $uid; ?>"><button class="btn btn-danger">View Cart</button></a></li>

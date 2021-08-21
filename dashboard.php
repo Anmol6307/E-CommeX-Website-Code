@@ -67,15 +67,21 @@ $result=mysqli_query($connection,$select);
                        <a href="buy.php"><button class="btn btn-warning">Buy Now</button></a>
                     </div>
                 </div>
-        </div>  
+        </div> 
         <?php
     }
     ?>
+    <div class="col-sm-9" style="height: 400px; border:1px solid skyblue;">
+     <div class="text-center">
+        <h2 class="mt-5">E-CommeX Website developed by the team of: <br><b>InfoDeltaSys Software Solutions Pvt. Ltd.</b><br> Thanks to our inspiring collections and our impeccable customer service,<br> we have been highly successful since day one.<br> Browse through our site <br>and check out the latest additions to our collection,<br> and feel free to get in touch with our team if <br>you need any assistance.<br><b>Happy shopping...!<b></p></h2>
+     </div>
+     <div>
+       <h1 class="text-center mt-5">Thanks for connecting with Us...!</h1>
+    </div>
+    </div>
     </div>
     <br>
-    <div>
-       <h2 class="text-center mt-5">Thanks for connecting with Us...!</h2>
-    </div>
+   
     
 </body>
 </html>
