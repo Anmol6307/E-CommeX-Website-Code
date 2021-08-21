@@ -25,6 +25,9 @@ $result=mysqli_query($connection,$select);
         h2{
             font-family: 'Dancing Script', cursive;
         }
+        h1{
+            font-family: 'Dancing Script', cursive;
+        }
         .navbar{
             background-color: green;
         }

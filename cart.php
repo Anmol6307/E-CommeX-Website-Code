@@ -11,16 +11,48 @@ $res=mysqli_query($connection, $query);
 <html>
 <head>
 	<meta charset="utf-8">
-	<title></title>
+	<title>Cart</title>
+	<style>
+	   *{
+        font-family: 'Comfortaa', cursive;
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	.navbar{
+            background-color: green;
+    }
+	.card-body{
+		border: 1px solid silver;
+	}
+	.Product:hover{
+        border: none;
+		box-shadow: 2px 2px 4px rgba(0,0,0,0,2);
+		transform: scale(1.02);
+	}
+	.Img:hover{
+        border: none;
+		box-shadow: 2px 2px 4px rgba(0,0,0,0,2);
+		transform: scale(1.01);
+	}
+	</style>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 </head>
 <body>
-	<a href="logout.php"><button class="btn btn-primary">LOGOUT</button></a>
-    <a href="cart.php?id=<?= $u_id; ?>"><button class="btn btn-primary">View Cart</button></a>
-    <a href="my_order.php?id=<?= $u_id; ?>"><button class="btn btn-primary">My Orders</button></a>
-	<div class="container">
-		<h2 class="text-center">Your Cart</h2>
+  <div class='navbar'>
+     <a href='dashboard.php'><button class="btn btn-primary">Home</button></a> 
+       <nav>
+         <ul id='MenuItems'>
+           <li><a href="logout.php"><button class="btn btn-danger">Log Out</button></a></li>
+           <li><a href="my_order.php?id=<?= $u_id; ?>"><button class="btn btn-warning">My Orders</button></a></li>
+        </ul>
+       </nav>
+    </div>
+	    <div class="container">
+		  <h1 class="text-center">Your Cart</h1>
 		<?php 
 		$a=1; 
 		$amt =0; 
@@ -29,28 +61,32 @@ $res=mysqli_query($connection, $query);
 			$amt=$amt+$row['price'];
 		 ?>
 		 <div class="row<?php echo $a; ?> mt-5">
-		            <div class="col-md-12 offset-2 mt-5">
-		                <div class="card mt-5">
+		            <div class="col-md-12 offset-2">
+		                <div class="card">
 		                    <div class="card-header ">
-		                    	<div class="card-body ">
+		                    	<div class="card-body">
 		                    		<form method="post">
-			                    		<div class="col-md-5">
-			                    			<img name="img" id="img_src<?= $a; ?>" src="upload/<?= $row['file']; ?>" style="width:100%;">
-			                    		</div>
-			                    		<div class="col-sm-7 "><br/>
+										<div class="Img">
+			                    		  <div class="col-md-5">
+			                    			<img name="img" id="img_src<?= $a; ?>" src="upload/<?= $row['file']; ?>" style="width:100%; height: 251px;">
+			                    		  </div>
+										</div>
+										<div class="Product">
+			                    		<div class="col-md-7"><br/>
 			                    		<h2>Product : <?= $row['p_name']; ?></h2><br/>
 			                    		Schedule Date & Time: <input type="datetime-local" id="datetime"><br/><br/>
-			                    		Weight(in kg):
+			                    		Weight(in kg) :
 										
 										<input type="button" value="-" onclick="sub<?php echo $a; ?>()"/>
 										<input type="number" class="weight<?= $a; ?>" name="prod_qty" id="q<?php echo $a; ?>" value="1" style="width:30px;"/>
 										<input type="button" value="+" onclick="add<?php echo $a; ?>()"/><br/><br/>
-										Total Price:<input  id="t" name="tamt" value="<?php echo $amt; ?>" readonly style="width:80px;"/>
+										Total Price : <input  id="t" class="text-center" name="tamt" value="<?php echo $amt; ?>" readonly style="width:75px;"/>
 			                    		</div>
 										<div class="text-center">
 			                    		  <input type="hidden" id="p_ids<?= $a; ?>" name="hidden" value="<?php echo $row['p_id'];?>">
-		                          		  <button type="submit" name="place_order<?= $a; ?>" id="place_order<?= $a; ?>" class="btn btn-primary from-control">Place  Order</button>
-		                          		  <button type="submit" name="delete<?= $a; ?>" id="delete<?= $a; ?>" class="btn btn-danger from-control">delete</button>
+										  <button type="submit" name="delete<?= $a; ?>" id="delete<?= $a; ?>" class="btn btn-danger from-control">Remove</button>
+		                          		  <button type="submit" name="place_order<?= $a; ?>" id="place_order<?= $a; ?>" class="btn btn-primary from-control">Place Order</button>
+										</div>
 										</div>
 		                    		</form>
 		                    	</div>

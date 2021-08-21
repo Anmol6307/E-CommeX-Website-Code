@@ -15,9 +15,8 @@
             <nav>
                 <ul id='MenuItems'>
                     <li><a href='#'>Home</a></li>
-                    <li><a href='#'>Products</a></li>
                     <li><button class='loginbtn'onclick="document.getElementById('login-form').style.display='block'" style="width:auto;">Login</button></li>
-                    <li><button class='loginbtn'onclick="document.getElementById('register-form').style.display='block'" style="width:auto;">Sign Up</button></li>
+                    <li><button class='loginbtn'onclick="document.getElementById('register-form').style.display='block'" style="width:auto;">Signup</button></li>
                 </ul>
             </nav>
         </div>

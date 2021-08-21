@@ -26,14 +26,46 @@ header("location:cart.php?id=$uid");
 <html>
 <head>
 	<meta charset="utf-8">
-	<title></title>
+	<title>Buy</title>
+	<style>
+nav{
+    flex: 1;
+    text-align: right;
+    padding-top: 6px;
+}
+.navbar{
+    background-color: green;
+}
+nav ul{
+    display: inline-block;
+    list-style: none;
+}
+nav ul li{
+    display: inline-block;
+    margin-right: 70px;
+}
+nav ul li a{
+    text-decoration: none;
+    font-size: 20px;
+    color: coral;
+    font-family: sans-serif;
+}
+	</style>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" integrity="sha512-oc9+XSs1H243/FRN9Rw62Fn8EtxjEYWHXRvjS43YtueEewbS6ObfXcJNyohjHqVKFPoXXUxwc+q1K7Dee6vv9g==" crossorigin="anonymous" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div class='navbar'>
+       <a href='dashboard.php'><button class="btn btn-primary">Home</button></a> 
+         <nav>
+           <ul id='MenuItems'>
+		     <li><a href="cart.php?id=<?= $uid; ?>"><button class="btn btn-danger">View Cart</button></a></li>
+             <li><a href="my_order.php?id=<?= $uid; ?>"><button class="btn btn-warning text-light">My Orders</button></a></li>
+           </ul>
+         </nav>
+   </div>  
 		<div class="container-fluid">
-		        <div class="row mt-5 bg-dark">
+		        <div class="row bg-dark">
 		            <div class="col-md-6 offset-3 mt-5">
 		                <div class="card bg-dark text-light mb-5">
 		                    <div class="card-header bg-warning text-white">
@@ -78,7 +110,7 @@ header("location:cart.php?id=$uid");
 		                            	<label for="price">Image</label>
 		                                <input type="file" name="file" id="file">
 		                            </div>
-		                            <input type="hidden" id="hid_id" name="prod_ids" >
+		                            <input type="hidden" id="hid_id" name="prod_ids">
 		                            <button type="submit" name="cart" class="btn btn-primary">Add To Cart</button>
 		                        </form>
 		                    </div>
